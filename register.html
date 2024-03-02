@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cran - Cadastro</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="mainTitle">Cadastro <span id="titleSpan">Cran</span></h1>
+      <form action="controller/RegisterController.php" method="post">
+        <div class="inputs">
+          <label for="name"><i class="ph ph-user"></i></label>
+          <input type="text" name="name" id="name" placeholder="Nome" />
+        </div>
+        <div class="inputs">
+          <label for="email"><i class="ph ph-at"></i></label>
+          <input type="email" name="email" id="email" placeholder="Email" />
+        </div>
+        <div class="inputs">
+          <label for="passowrd"><i class="ph ph-password"></i></label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+          />
+        </div>
+        <div class="inputs">
+          <label for=""><i class="ph ph-password"></i></label>
+          <input
+            type="password"
+            name="checkPassword"
+            id="checkPassword"
+            placeholder="Confirmar senha"
+          />
+        </div>
+        <input type="submit" value="Cadastrar-se" id="register" />
+      </form>
+    </div>
+  </body>
+</html>

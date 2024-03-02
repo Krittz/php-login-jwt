@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Cran - Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="idMainTitle">Login <span id="titleSpan">Cran</span></h1>
+      <form action="controller/LoginController.php" method="post">
+        <div class="inputs">
+          <label for="email"><i class="ph ph-at"></i></label>
+          <input type="email" name="email" id="email" placeholder="Email" />
+        </div>
+        <div class="inputs">
+          <label for="password"><i class="ph ph-lock"></i></label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+          />
+        </div>
+        <a href="register.html" id="forget">Não possui cadastro?</a>
+        <input type="submit" value="Entrar" />
+      </form>
+    </div>
+  </body>
+</html>
