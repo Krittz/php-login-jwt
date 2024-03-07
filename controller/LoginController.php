@@ -37,6 +37,16 @@ class LoginController
         }
     }
 }
+$data = json_decode(file_get_contents("php://input"));
+
+
+if (!empty($data->email) && !empty($data->password)) {
+
+    $database_file = '../dao/usuarios.db';
+    $loginController = new LoginController($database_file);
+    $result = $loginController->loginUser($data->email, $data->password);
+    echo $result;
+}
 if (isset($_POST['email'], $_POST['password'])) {
     $database_file = '../dao/usuarios.db';
     $loginController = new LoginController($database_file);
