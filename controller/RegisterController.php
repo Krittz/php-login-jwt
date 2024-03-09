@@ -8,6 +8,19 @@ class RegisterController
     {
         $this->db = Database::getInstance($database_file);
     }
+    public function registerUserFromJSON($json_data)
+    {
+        $data = json_decode($json_data, true);
+        if ($data === null) {
+            return "Erro ao decodificar JSON.";
+        }
+        $name = $data['name'];
+        $email = $data['email'];
+        $password = $data['password'];
+        $checkPassword = $data['checkPassword'];
+
+        return $this->registeruser($name, $email, $password, $checkPassword);
+    }
 
     public function registeruser($name, $email, $password, $checkpassword)
     {
@@ -39,6 +52,18 @@ class RegisterController
         }
     }
 }
+$json_data = file_get_contents('php://input');
+
+if (!empty($json_data)) {
+    $database_file = '../dao/usuarios.db';
+    $registerController = new RegisterController($database_file);
+    $result = $registerController->registerUserFromJSON($json_data);
+    echo json_encode(['message' => $result]);
+} else {
+    echo json_encode(['message' => $result]);
+}
+
+
 if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['checkPassword'])) {
     $database_file = '../dao/usuarios.db';
     $registerController = new RegisterController($database_file);
